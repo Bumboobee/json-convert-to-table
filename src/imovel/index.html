@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sigati - Converssor Imoveis</title>
+    <link rel="icon" type="text/css" href="/images/SIGATI_Icon.ico"/>
+
+    <link rel="stylesheet" type="text/css" href="/config/bootstrap/styles/bootstrap-grid.min.css">
+    <link rel="stylesheet" type="text/css" href="/config/bootstrap/styles/bootstrap-grid.rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="/config/bootstrap/styles/bootstrap-reboot.min.css">
+    <link rel="stylesheet" type="text/css" href="/config/bootstrap/styles/bootstrap-utilities.min.css">
+    <link rel="stylesheet" type="text/css" href="/config/bootstrap/styles/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" type="text/css" href="/config/font-awesome/fontawesome-5.15.4.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href=" https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.3.4/css/buttons.dataTables.min.css" /> 
+    
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="d-flex justify-content-between mt-5 align-self-center">      
+      <div class="align-self-end">        
+        <h1 class="title-heade-color mt-2 text-white">
+          EXPORTAR DADOS
+        </h1>
+      </div>
+
+      <div class="align-self-end">  
+        <div class="buttons-container">  
+          <button type="button" class="btn btn-primary btn-settup" id="openSetting" data-bs-toggle="modal" data-bs-target="#openSettings" data-bs-whatever="@mdo"><i class="fas fa-cog"></i>&nbsp;Paramêtros</button>
+        
+          <button type="button" class="btn btn-primary btn-settup"><i class="fas fa-home"></i>&nbsp; <a href="/">Dados Lote</a></button>
+        </div> 
+        <div class="modal fade" id="openSettings" tabindex="-1" aria-labelledby="openSetting" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="openSetting">Paramêtros da Listagem</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="city-name" class="col-form-label">Município</label>
+                    <input type="text" class="form-control" id="city-name">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="qtde-registro" class="col-form-label">Quantidade de Registros</label>
+                    <input type="number" class="form-control" id="qtde-registro">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="qtde-ignorar" class="col-form-label">Ignorar Registros</label>
+                    <input type="number" class="form-control" id="qtde-ignorar">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="cod-lote" class="col-form-label">Pesquisar por Código</label>
+                    <input type="text" class="form-control" id="cod-lote">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="token-text" class="col-form-label">Token de Acesso:</label>
+                    <textarea class="form-control" id="token-text"></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times"></i>&nbsp; Fechar</button>
+                <button type="button" class="btn btn-primary btn-imovel" id="searchData"><i class="fas fa-search"></i>&nbsp; Buscar Dados</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+
+    <br />
+
+    <div class="card mb-5 rounded bg-secondary">
+      <div class="card-header bg-secondary text-white">
+        <strong><i class="fas fa-building"></i>&nbsp; <span id="city-name-text">MUNICÍPIO NÃO ENCONTRADO</span></strong>
+      </div>
+
+      <div class="card-body table-responsive">
+        <div class="table-container">
+          <table id="table-to-export" class="table table-secondary">
+              <thead class="text-secondary">
+                  <tr>
+                    <th class="text-center">ID DO LOTE</th>
+                    <th class="text-center">INSCRIÇÃO</th>
+                    <th class="text-center">ID DO IMOVEL</th>
+                    <th class="text-center">ÁREA IMOVEL</th>
+                  </tr>
+              </thead>
+              <tbody>                 
+                    <tr>
+                      <td class="text-center td-table"></td>
+                      <td class="text-center td-table"></td>
+                      <td class="text-center td-table"></td>
+                      <td class="text-center td-table"></td>
+                    </tr>
+              </tbody>
+            </table>
+        </div>    
+      </div>
+
+    </div> 
+    
+    <div class="lds-roller">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="bg-overlay"></div>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>  
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+  <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+  <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>          
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="../index.js"></script> 
+</body>
+</html>
