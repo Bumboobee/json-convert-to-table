@@ -2,7 +2,7 @@
 Projeto que realiza a conversão dos dados presente no retorno da api disponibilizada pela empresa **[Fiorilli](https://fiorilli.com.br/)**.
 
 ## Como Funciona?
-O esse converssor realizar a tranformação dos dados de retorno do *endpoint* de uma api para planilhas do excel. A princípio, tal função seria simples... 📍mas📍 estamos falando aqui, dos dados de uma cidade inteira, então temos diversos campos sendo retornados em diversas **[arrays]** e **[sub arrays]**. Tal fator dificultou a criação dessa primeira versão.
+Esse converssor realizar a tranformação dos dados de retorno do *endpoint* de uma api para planilhas do excel. A princípio, tal função seria simples... 📍mas📍 estamos falando aqui, dos dados de uma cidade inteira, então temos diversos campos sendo retornados em diversas **[arrays]** e **[sub arrays]**. Tal fator dificultou a criação dessa primeira versão.
 
 ## Popular Tabela 
 Primeiro, foi necessário a criação de uma tabela, vazia, somente com seus respectivos headers. Após a inicialização da tabela, vamos *popular* a mesma: 
