@@ -122,6 +122,8 @@ Desta forma, foi possivel mandar cada retorno da api para seu campo especifico!
 | tipo unidade                            | descri_edf        |                                                                                           | referente ao tipo de imovel dentro do lote, se é um prédio, se é uma edificação principal...                                                                                           |
 </div>
 
+
+[❗]                                            [❗]
 - Att
 Adicionado tela de gerar dados dos imóveis. Essa tela gera os dados dos imóveis de forma separada. Sendo necessário o agrupamento das mesmas.
 <br />
